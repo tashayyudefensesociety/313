@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shia Islamic Articles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for elements that can't be done with Tailwind */
+        .banner-gradient {
+            background: linear-gradient(to right, #f5f5dc, #8FBC8F);
+        }
+        .article-card {
+            transition: all 0.3s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        #articleForm {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-black font-serif">
+    <!-- Header Banner with Navigation -->
+    <header class="banner-gradient py-4 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <h1 class="text-3xl font-bold text-center md:text-left mb-4 md:mb-0">Shia Islamic Articles</h1>
+                <nav class="flex flex-wrap justify-center gap-2 md:gap-4">
+                    <a href="#" class="px-3 py-1 bg-green-800 text-white rounded hover:bg-green-700 transition" onclick="showHome()">Home</a>
+                    <a href="#" class="px-3 py-1 bg-green-800 text-white rounded hover:bg-green-700 transition" onclick="showAbout()">About</a>
+                    <a href="#" class="px-3 py-1 bg-green-800 text-white rounded hover:bg-green-700 transition" onclick="showPostForm()">Post Article</a>
+                    <a href="#" class="px-3 py-1 bg-green-800 text-white rounded hover:bg-green-700 transition" onclick="showContact()">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Home Section (Default View) -->
+        <section id="homeSection">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-green-800 pb-2">Recent Articles</h2>
+            <div id="articlesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Articles will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="aboutSection" class="hidden">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-green-800 pb-2">About Us</h2>
+            <div class="bg-amber-50 p-6 rounded-lg shadow">
+                <p class="mb-4">Welcome to Shia Islamic Articles, a platform dedicated to sharing knowledge about Shia Islam, its teachings, history, and practices.</p>
+                <p class="mb-4">Our mission is to provide authentic information and foster understanding of the Shia tradition within the broader Islamic framework.</p>
+                <p>This website follows the teachings of Ahlul Bayt (AS) and aims to serve as a resource for both Shia Muslims and those seeking to learn about Shia Islam.</p>
+            </div>
+        </section>
+
+        <!-- Article Posting Form -->
+        <section id="articleForm" class="hidden">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-green-800 pb-2">Post New Article</h2>
+            <form id="postArticleForm" class="bg-amber-50 p-6 rounded-lg shadow">
+                <div class="mb-4">
+                    <label for="articleTitle" class="block font-medium mb-2">Article Title</label>
+                    <input type="text" id="articleTitle" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-800" required>
+                </div>
+                <div class="mb-4">
+                    <label for="articleAuthor" class="block font-medium mb-2">Author Name</label>
+                    <input type="text" id="articleAuthor" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-800" required>
+                </div>
+                <div class="mb-4">
+                    <label for="articleContent" class="block font-medium mb-2">Article Content</label>
+                    <textarea id="articleContent" rows="8" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-800" required></textarea>
+                </div>
+                <div class="flex justify-end gap-4">
+                    <button type="button" onclick="showHome()" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 transition">Cancel</button>
+                    <button type="submit" class="px-4 py-2 bg-green-800 text-white rounded hover:bg-green-700 transition">Post Article</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contactSection" class="hidden">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-green-800 pb-2">Contact Us</h2>
+            <div class="bg-amber-50 p-6 rounded-lg shadow">
+                <p class="mb-4">For questions, suggestions, or to submit articles for review, please contact us at:</p>
+                <p class="font-medium">Email: <span class="text-green-800">info@shiaislamicarticles.com</span></p>
+                <p class="mt-4">We appreciate your feedback and contributions to this platform.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2023 Shia Islamic Articles. All rights reserved.</p>
+            <p class="mt-2 text-green-200">May Allah (SWT) bless you and guide us all to the straight path.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample articles data
+        let articles = [
+            {
+                id: 1,
+                title: "The Concept of Imamate in Shia Islam",
+                author: "Shaykh Ali Raza",
+                content: "The concept of Imamate is central to Shia Islam. It refers to the divine appointment of leaders after the Prophet Muhammad (PBUH) who possess both spiritual and temporal authority. The Imams, beginning with Imam Ali (AS) and continuing through his descendants, are considered infallible guides appointed by Allah to lead the Muslim community...",
+                date: "October 15, 2023"
+            },
+            {
+                id: 2,
+                title: "Commemorating Ashura: Significance and Practices",
+                author: "Sister Fatima Al-Husayni",
+                content: "Ashura, the 10th day of Muharram, marks the martyrdom of Imam Husayn (AS) at Karbala. For Shia Muslims, this day represents the eternal struggle between truth and falsehood, justice and oppression. The commemoration of Ashura includes mourning processions, majalis (gatherings where the tragedy is recounted), and acts of charity...",
+                date: "September 28, 2023"
+            },
+            {
+                id: 3,
+                title: "The Role of Ahlul Bayt in Islamic Teachings",
+                author: "Dr. Hasan Qazwini",
+                content: "Ahlul Bayt, the Household of the Prophet (PBUH), hold a special position in Islam. The Quran refers to them in the Verse of Purification (33:33), indicating their spiritual purity. The Prophet Muhammad (PBUH) emphasized their importance through numerous hadiths, including the famous Hadith of Thaqalayn where he declared the Quran and his Ahlul Bayt as two weighty things he was leaving behind...",
+                date: "August 22, 2023"
+            }
+        ];
+
+        // Display articles on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            displayArticles();
+        });
+
+        // Function to display articles
+        function displayArticles() {
+            const container = document.getElementById('articlesContainer');
+            container.innerHTML = '';
+            
+            articles.forEach(article => {
+                const articleCard = document.createElement('div');
+                articleCard.className = 'article-card bg-white p-6 rounded-lg shadow-md border-l-4 border-green-800';
+                articleCard.innerHTML = `
+                    <h3 class="text-xl font-bold mb-2">${article.title}</h3>
+                    <p class="text-gray-600 mb-2">By ${article.author} • ${article.date}</p>
+                    <p class="mb-4">${article.content.substring(0, 150)}...</p>
+                    <a href="#" class="text-green-800 font-medium hover:underline" onclick="viewArticle(${article.id})">Read More</a>
+                `;
+                container.appendChild(articleCard);
+            });
+        }
+
+        // Function to view full article
+        function viewArticle(id) {
+            const article = articles.find(a => a.id === id);
+            if (article) {
+                const container = document.getElementById('articlesContainer');
+                container.innerHTML = `
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <button onclick="showHome()" class="mb-4 px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition">← Back to Articles</button>
+                        <h3 class="text-2xl font-bold mb-2">${article.title}</h3>
+                        <p class="text-gray-600 mb-4">By ${article.author} • ${article.date}</p>
+                        <div class="prose max-w-none">
+                            <p>${article.content}</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Navigation functions
+        function showHome() {
+            document.getElementById('homeSection').classList.remove('hidden');
+            document.getElementById('aboutSection').classList.add('hidden');
+            document.getElementById('articleForm').classList.add('hidden');
+            document.getElementById('contactSection').classList.add('hidden');
+            displayArticles();
+        }
+
+        function showAbout() {
+            document.getElementById('homeSection').classList.add('hidden');
+            document.getElementById('aboutSection').classList.remove('hidden');
+            document.getElementById('articleForm').classList.add('hidden');
+            document.getElementById('contactSection').classList.add('hidden');
+        }
+
+        function showPostForm() {
+            document.getElementById('homeSection').classList.add('hidden');
+            document.getElementById('aboutSection').classList.add('hidden');
+            document.getElementById('articleForm').classList.remove('hidden');
+            document.getElementById('contactSection').classList.add('hidden');
+            document.getElementById('articleTitle').focus();
+        }
+
+        function showContact() {
+            document.getElementById('homeSection').classList.add('hidden');
+            document.getElementById('aboutSection').classList.add('hidden');
+            document.getElementById('articleForm').classList.add('hidden');
+            document.getElementById('contactSection').classList.remove('hidden');
+        }
+
+        // Handle form submission
+        document.getElementById('postArticleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('articleTitle').value;
+            const author = document.getElementById('articleAuthor').value;
+            const content = document.getElementById('articleContent').value;
+            
+            const newArticle = {
+                id: articles.length + 1,
+                title: title,
+                author: author,
+                content: content,
+                date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+            };
+            
+            articles.unshift(newArticle); // Add new article at the beginning
+            document.getElementById('postArticleForm').reset();
+            showHome();
+        });
+    </script>
+</body>
+</html>
