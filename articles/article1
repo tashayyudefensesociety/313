@@ -1,1 +1,19 @@
-# Hello1!
+<!-- articles/article1.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quranic Proofs of Imam Ali's Succession</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800">
+    <div class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-4">Quranic Proofs of Imam Ali's Succession</h1>
+        <p class="text-gray-600 text-sm mb-8">Published on May 30, 2025</p>
+        <div class="space-y-4">
+            <p>In Shia belief, the succession of Imam Ali is not just a historical event, but one that has Quranic support...</p>
+            <!-- Article content here -->
+        </div>
+    </div>
+</body>
+</html>
